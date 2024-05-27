@@ -1,0 +1,28 @@
+<%- include('../partials/header2.ejs') %>
+<link rel="stylesheet" href="/css/vinyls.css">
+
+<div class="container">
+    <% if(vinyls.length) { %>
+        <% 
+            vinyls.sort((a, b) => a.price - b.price);
+            vinyls.forEach(vinyl => { %>
+            <div class="card">
+                <a href="http://localhost:3001/vinyls/<%= vinyl.id %>">
+                    <img src="/images/<%= vinyl.image %>" alt="<%= vinyl.title %>" height="400" width="300">
+                    <h2 class="black-text"><%= vinyl.title %></h2>
+                    <p class="condition grey-text"><%= vinyl.condition %></p>
+                    <div class="border"></div>
+                    <div class="price-offers">
+                        <p class="price green-text">$<%= vinyl.price %></p>
+                        <p class="offers black-text"><%= vinyl.totalOffers %> offers</p>
+                    </div>
+                </a>
+            </div>
+        <% }); %>
+    <% } else { %>
+        <strong><h1 style="color: white;">There are no vinyls for sale</h1></strong>
+    <% } %>
+</div>
+
+
+<%- include('../partials/footer.ejs') %>

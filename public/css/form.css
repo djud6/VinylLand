@@ -1,0 +1,104 @@
+     /* Center the wrapper div on the screen */
+     .wrapper {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+    }
+    
+    
+            /* Styles for the content */
+            .container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center; /* Align items vertically */
+                width: 90%;
+                margin-top: 10%;
+            }
+    
+            /* Styles for the form description */
+            .form-desc {
+                margin-right: 20px; /* Add margin to separate from form */
+            }
+    
+            /* Styles for the form group */
+            .form-group {
+                flex: 1;
+                background-color: #fff;
+                color:black;
+                padding: 5%;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+    
+            /* Styles for form rows */
+            .form-row {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+    
+            /* Styles for labels */
+            .form-row label {
+                margin-right: 10px; 
+                width: 100px; /* Fixed width for labels */
+                text-align: right; 
+            }
+    
+            /* Styles for form inputs */
+            .form-row input[type="text"],
+            .form-row input[type="number"],
+            .form-row textarea,
+            .form-row select,
+            .form-row input[type="file"] {
+                flex: 1;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+    
+            /* Styles for the submit button */
+            .submit-button {
+                background-color: #007bff;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                font-size: 18px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                width: 70%;
+                margin-left: 30%;
+            }
+    
+            .submit-button:hover {
+                background-color: #0056b3;
+            }
+    
+            /* Styles for textarea with fixed width */
+            .fixed-width {
+                width: calc(100% - 120px);
+            }
+            .footer {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 10px 0;
+                text-align: center;
+            }
+            .card {
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                margin-bottom: 20px;
+                background-color: #fff;
+            }
+        

@@ -1,0 +1,81 @@
+<%- include('../partials/header.ejs') %>
+<link rel="stylesheet" href="/css/signup.css">
+
+<h1 style="color: white; text-align: center; margin-top: 10%;">My Listings</h1>
+
+
+
+<div class="wrapper">
+
+ 
+  <div class="Table">
+    <% if (vinyls.length) { %>
+      <table class="table-listings">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% vinyls.forEach(vinyl => { %>
+            <tr>
+              <td>
+                <a href="/vinyls/<%= vinyl.id %>" class="title"><%= vinyl.title %></a>
+              </td>
+              <td class="status-active"><%= vinyl.active ? 'active' : 'inactive' %></td>
+              <td class="actions">
+                <a href="/vinyls/<%= vinyl.id %>/edit" class="action-btn edit-btn1">Edit</a>
+                <form action="/vinyls/<%= vinyl.id %>?_method=DELETE" method="POST" class="action-btn delete-form">
+                  <button type="submit" class="action-btn edit-btn2">Delete</button>
+                </form>
+                <% if (vinyl.totalOffers > 0) { %>
+                  <form action="/vinyls/<%= vinyl.id %>/offers" method="GET" class=" delete-form">
+                    <button type="submit" class="view-offers action-btn">View Offers</button>
+                  </form>
+                <% } else { %>
+                  <button disabled class="no-offers">No Offers</button>
+                <% } %>
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <p>You have no listings</p>
+    <% } %>
+  </div>
+</div>
+
+<h1 style="color: white; text-align: center; margin-top: 10%;">My Offers</h1>
+<div class="wrapper">
+
+ 
+  <div class="Table">
+    <% if (offers.length) { %>
+      <table class="table-listings">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Status</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% offers.forEach(offer => { %>
+            <tr>
+              <td style="color: black;"><%= offer.vinyl.title %></td>
+              <td style="color: black;"><%= offer.status %></td>
+              <td style="color: black;">$<%= offer.amount.toFixed(2) %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <p>You have made no offers</p>
+    <% } %>
+  </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

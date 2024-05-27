@@ -1,0 +1,69 @@
+<%- include('../partials/header2.ejs')%>
+
+<link rel="stylesheet" href="/css/form.css">
+
+<div class="wrapper">
+    <div class="container">
+        <div class="form-desc">
+            <h1>Edit Vinyl</h1>
+            <p>Modify your vinyl information</p>
+        </div>
+    
+        <div class="form-group">
+            <form method="POST" action = "/vinyls/<%= vinyl.id %>?_method=PUT" class="edit-form" enctype="multipart/form-data">
+                <div class="form-row">
+                    <label for="condition">Condition:</label>
+                    <select name="condition" id="condition" required>
+                        <option value="" disabled>Select condition</option>
+                        <option value="New" <% if (vinyl.condition === 'New') { %> selected <% } %>>New</option>
+                        <option value="Excellent" <% if (vinyl.condition === 'Excellent') { %> selected <% } %>>Excellent</option>
+                        <option value="Very Good" <% if (vinyl.condition === 'Very Good') { %> selected <% } %>>Very Good</option>
+                        <option value="Good" <% if (vinyl.condition === 'Good') { %> selected <% } %>>Good</option>
+                        <option value="Fair" <% if (vinyl.condition === 'Fair') { %> selected <% } %>>Fair</option>
+                    </select>
+                </div>
+    
+                <div class="form-row">
+                    <label for="title">Title:</label>
+                    <input type="text" name="title" id="title" value="<%= vinyl.title %>" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="artist">Artist:</label>
+                    <input type="text" name="artist" id="artist" value="<%= vinyl.artist %>" required>
+                </div>
+    
+                <div class="form-row">
+                    <label for="price">Price:</label>
+                    <input type="number" step="0.01" id="price" name="price" value="<%= vinyl.price %>" required>
+                </div>
+    
+                <div class="form-row">
+                    <label for="details">Details:</label>
+                    <textarea rows="5" id="details" name="details" class="fixed-width"><%= vinyl.details %></textarea>
+                </div>
+    
+                <div class="form-row">
+                    <label for="image">Image:</label>
+                    <input type="file" name="image" id="image" value="<%= vinyl.image %>">
+                </div>
+    
+                <div class="form-row">
+                    <button type="submit" class="submit-button">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="footer-content">
+        <p>@vinylLand</p>
+        <div class="social-media">
+            <a href="#"><i class="fa-brands fa-facebook" style="color: #fff;"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin" style="color: #fff;"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram" style="color: #fff;"></i></a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

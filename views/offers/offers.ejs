@@ -1,0 +1,44 @@
+<%- include('../partials/header.ejs') %>
+<link rel="stylesheet" href="/css/signup.css">
+
+<h1 style="color: white; text-align: center; margin-top: 10%;">Offers received for: <%= itemTitle %></h1>
+<div class="wrapper">
+  <div class="Table">
+    <% if (offers.length) { %>
+      <table class="table-listings">
+        <thead>
+          <tr>
+            <th>Buyer</th>
+            <th>Amount</th>
+            <% if (offers.some(offer => offer.status === 'pending')) { %>
+              <th>Action</th>
+            <% } else { %>
+              <th>Status</th>
+            <% } %>
+          </tr>
+        </thead>
+        <tbody>
+          <% offers.forEach(offer => { %>
+            <tr>
+              <td style="color: black;"><%= offer.user.firstName + ' ' + offer.user.lastName %></td>
+              <td style="color: black;">$<%= offer.amount.toFixed(2) %></td>
+              <td style="color: black;">
+                <% if (itemActive && offer.status === 'pending') { %>
+                  <form action="/vinyls/<%= vinyl.id %>/offers/<%= offer._id %>/accept?_method=PATCH" method="POST">
+                    <button type="submit" class="accept">Accept</button>
+                  </form>
+                <% } else { %>
+                    <p><%= offer.status %></p>
+                <% } %>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <p>No offers</p>
+    <% } %>
+  </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

@@ -1,0 +1,11 @@
+user1
+Email: dudoeyop@gmail.com
+Password: 12345678
+
+User2
+Email: user2@gmail.com
+Password: 12345678
+
+User3
+Email: user3@gmail.com
+Password: 12345678
